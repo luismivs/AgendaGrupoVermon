@@ -1,0 +1,17 @@
+<h2>Mis contactos</h2>
+<ul class="contactos">
+    <li *ngFor="let contacto of contactos">
+        <a routerLink="/contacto-detalle/{{contacto.id}}">
+            <span class="badge">{{contacto.id}}</span> {{contacto.nombre}} {{contacto.telefono}} {{contacto.tecnologias}}
+        </a>        
+    </li>
+  </ul>
+
+  <!--<app-contacto-detalle [contacto]="selectedContacto"></app-contacto-detalle>-->
+
+  <!--<h2>Mis contactos</h2>
+<ul class="contactos">
+    <li *ngFor="let contacto of contactos" (click)="onSelect(contacto)" [class.selected]="contacto === selectedContacto">
+      <span class="badge">{{contacto.id}}</span> {{contacto.nombre}} {{contacto.telefono}} {{contacto.tecnologias}}
+    </li>
+  </ul>-->

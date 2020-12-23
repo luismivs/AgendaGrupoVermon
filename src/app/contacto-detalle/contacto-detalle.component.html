@@ -1,0 +1,42 @@
+<div *ngIf="contacto">
+    <h2>Detalles de {{contacto.nombre}}</h2>
+    <div><span>id: </span>{{contacto.id}}</div>
+    <div>
+        <label>nombre:
+        <input [(ngModel)]="contacto.nombre" placeholder="nombre"/>
+        </label>
+    </div>
+    <div>
+        <label>apellido1:
+        <input [(ngModel)]="contacto.apellido1" placeholder="apellido1"/>
+        </label>
+    </div>
+    <div>
+        <label>apellido2:
+        <input [(ngModel)]="contacto.apellido2" placeholder="apellido2"/>
+        </label>
+    </div>
+    <div>
+        <label>telefono:
+        <input [(ngModel)]="contacto.telefono" placeholder="telefono"/>
+        </label>
+    </div>
+    <div>
+        <label>direccion:
+        <input [(ngModel)]="contacto.direccion" placeholder="direccion"/>
+        </label>
+    </div>
+    <div>
+        <label>fecha de nacimiento:
+        <input [(ngModel)]="contacto.fecha_nacimiento" placeholder="fecha de nacimineto"/>
+        </label>
+    </div>
+    <div>
+        <label>tecnologias:
+        <input [(ngModel)]="contacto.tecnologias" placeholder="tecnologias"/>
+        </label>
+    </div>
+</div>
+
+<button (click)="goBack()">Volver</button>
+<button (click)="save()">Actualizar</button>
