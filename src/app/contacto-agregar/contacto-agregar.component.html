@@ -1,1 +1,42 @@
 <h3>Datos del nuevo contacto</h3>
+<div>
+    <label>Id:
+      <input #contactoId />
+    </label>
+    <br>
+    <label>Nombre:
+      <input #contactoNombre />
+    </label>
+    <br>
+    <label>Primer apellido:
+      <input #contactoApellido1 />
+    </label>
+    <br>
+    <label>Segundo apellido:
+      <input #contactoApellido2 />
+    </label>
+    <br>
+    <label>Telefono:
+      <input #contactoTelefono />
+    </label>
+    <br>
+    <label>Direccion:
+      <input #contactoDireccion />
+    </label>
+    <br>
+    <label>Fecha de nacimiento:
+      <input #contactoFecha_nacimiento/>
+    </label>
+    <br>
+    <label>Tecnologias:
+      <input #contactoTecnologias/>
+    </label>
+    <br>
+    
+    <button (click)="add(contactoId.value, contactoNombre.value, contactoApellido1.value, contactoApellido2.value, contactoTelefono.value, contactoDireccion.value, contactoFecha_nacimiento.value, contactoTecnologias.value);">
+      Guardar
+    </button> 
+  </div>
+
+
+      <!--contactoNombre.value='' contactoApellido1.value=''-->

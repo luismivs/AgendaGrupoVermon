@@ -28,4 +28,9 @@ export class ContactosComponent implements OnInit {
     this.contactoService.getContactos().subscribe(contactos => this.contactos = contactos);
   }
 
+  delete(contacto: Contacto): void {
+    this.contactos = this.contactos.filter(h => h !== contacto);
+    this.contactoService.deleteContacto(contacto).subscribe();
+  }
+
 }

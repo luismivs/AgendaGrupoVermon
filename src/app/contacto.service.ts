@@ -35,6 +35,31 @@ export class ContactoService {
     );
   }
 
+  addContacto(contacto: Contacto): Observable<Contacto> {
+    return this.http.post<Contacto>(this.contactosUrl, contacto, this.httpOptions).pipe(
+      catchError(this.handleError<Contacto>('addContacto'))
+    );
+  }
+
+  deleteContacto(contacto: Contacto | number): Observable<Contacto> {
+    const id = typeof contacto === 'number' ? contacto : contacto.id;
+    const url = `${this.contactosUrl}/${id}`;
+
+    return this.http.delete<Contacto>(url, this.httpOptions).pipe(
+      catchError(this.handleError<Contacto>('deleteContacto'))
+    );
+  }
+
+
+  searchContactos(term: string): Observable<Contacto[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<Contacto[]>(`${this.contactosUrl}/?nombre=${term}`).pipe(
+      catchError(this.handleError<Contacto[]>('searchContactos', []))
+    );
+  }
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
