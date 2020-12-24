@@ -1,22 +1,35 @@
-/* Application-wide Styles */
-/*h1 {
-    color: #369;
+h1 {
+    /*color: #369;*/
+    color: #2F2310;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 250%;
+    text-align: center;
   }
   h2, h3 {
     color: #444;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: lighter;
+    text-align: center;
+  }
+  nav {
+    text-align: center;
+    font-size: 125%;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  a {
+    color: #333;
+    text-decoration: none;
+    text-align: center;
+    width: 250px;
   }
   body {
     margin: 2em;
+    /*margin: 500px;*/
   }
   body, input[type="text"], button {
     color: #333;
     font-family: Cambria, Georgia;
-  }*/
-  /* everywhere else */
-  /*{
+  }
+  button {
     font-family: Arial, Helvetica, sans-serif;
-  }*/
+  }

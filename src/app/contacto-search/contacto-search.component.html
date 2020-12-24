@@ -1,13 +1,18 @@
-<div id="search-component">
-    <h4><label for="search-box">Buscador de contactos</label></h4>
-  
-    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
-  
-    <ul class="search-result">
-      <li *ngFor="let contacto of contactos$ | async" >
-        <a routerLink="/contacto-detalle/{{contacto.id}}">
-          {{contacto.nombre}}
-        </a>
-      </li>
-    </ul>
+  <div id="search-component">
+      <h4><label for="search-box">Buscador de contactos: </label>
+        <input #searchBox id="search-box" (input)="search(searchBox.value)"/>
+        <!--<mat-form-field>
+          <input matInput #searchBox id="search-box" (input)="search(searchBox.value)" [(ngModel)]="value">
+          <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>-->
+      </h4>      
+      <ul class="search-result">
+        <li *ngFor="let contacto of contactos$ | async" >
+          <a routerLink="/contacto-detalle/{{contacto.id}}">
+            {{contacto.nombre}} {{contacto.apellido1}}
+          </a>
+        </li>
+      </ul>
   </div>

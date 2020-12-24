@@ -1,42 +1,54 @@
+<body bgcolor="#F7F3E2">
+<br>
 <h3>Datos del nuevo contacto</h3>
 <div>
-    <label>Id:
-      <input #contactoId />
-    </label>
+    <mat-form-field class="example-full-width">
+      <mat-label>Id</mat-label>
+      <input matInput type="number" #contactoId required>
+    </mat-form-field>
     <br>
-    <label>Nombre:
-      <input #contactoNombre />
-    </label>
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput #contactoNombre required>
+    </mat-form-field>
     <br>
-    <label>Primer apellido:
-      <input #contactoApellido1 />
-    </label>
+    <mat-form-field class="example-full-width">
+      <mat-label>Primer apellido</mat-label>
+      <input matInput #contactoApellido1 required>
+    </mat-form-field>
     <br>
-    <label>Segundo apellido:
-      <input #contactoApellido2 />
-    </label>
+    <mat-form-field class="example-full-width">
+      <mat-label>Segundo apellido</mat-label>
+      <input matInput #contactoApellido2 required>
+    </mat-form-field>
     <br>
-    <label>Telefono:
-      <input #contactoTelefono />
-    </label>
+    <mat-form-field class="example-full-width">
+      <mat-label>Teléfono</mat-label>
+      <input matInput maxlength="9" #contactoTelefono required>
+      <mat-hint align="end">{{contactoTelefono.value?.length || 0}}/9</mat-hint>
+    </mat-form-field>
     <br>
-    <label>Direccion:
-      <input #contactoDireccion />
-    </label>
+    <mat-form-field class="example-full-width">
+      <mat-label>Dirección</mat-label>
+      <input matInput #contactoDireccion required>
+    </mat-form-field>
     <br>
-    <label>Fecha de nacimiento:
-      <input #contactoFecha_nacimiento/>
-    </label>
+    <mat-form-field class="example-full-width">
+      <mat-label>Fecha de nacimiento</mat-label>
+      <input matInput type="date" #contactoFecha_nacimiento required>
+    </mat-form-field>
     <br>
-    <label>Tecnologias:
-      <input #contactoTecnologias/>
-    </label>
+    <mat-form-field appearance="fill">
+      <mat-label>Tecnologías</mat-label>
+      <mat-select [formControl]="tecnologias" multiple>
+        <mat-option *ngFor="let tecnologia of tecnologiasList" [value]="tecnologia">{{tecnologia}}</mat-option>
+      </mat-select>
+    </mat-form-field>
     <br>
-    
-    <button (click)="add(contactoId.value, contactoNombre.value, contactoApellido1.value, contactoApellido2.value, contactoTelefono.value, contactoDireccion.value, contactoFecha_nacimiento.value, contactoTecnologias.value);">
+    <br>
+    <button mat-raised-button color="primary" (click)="add(contactoId.value, contactoNombre.value, contactoApellido1.value, contactoApellido2.value, contactoTelefono.value, contactoDireccion.value, contactoFecha_nacimiento.value, tecnologias.value);">
       Guardar
-    </button> 
+    </button> |
+    <button mat-stroked-button (click)="goBack()">Volver</button>
   </div>
-
-
-      <!--contactoNombre.value='' contactoApellido1.value=''-->
+</body>

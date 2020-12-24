@@ -8,6 +8,7 @@
     background-color: white;
     cursor: pointer;
     list-style-type: none;
+
   }
   
   .search-result li:hover {
@@ -30,9 +31,19 @@
     width: 200px;
     height: 20px;
   }
-  
+  div{
+    text-align: center;
+  }
   
   ul.search-result {
     margin-top: 0;
     padding-left: 0;
+    /*top: 25%;*/
+    left: 50.5%;
+    position: absolute;
+  }
+  h4 {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 150%
   }

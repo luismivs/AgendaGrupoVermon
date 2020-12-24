@@ -1,13 +1,24 @@
-<h1>{{title}}</h1>
-<h2>Bienvinido a la agenda de Grupo Vermon</h2>
+<body  bgcolor="#D8B264">
+    <br>
+    <h1>{{title}}</h1>
+    <h2>Bienvenido a la agenda: GRUPO VERMON</h2>
 
-<nav>
-    <a routerLink="/contactos">Ver lista de contactos</a>
-</nav>
-
-<nav>
-    <a routerLink="/contacto-agregar">Añadir nuevo contacto</a>
-</nav>
-
-
-<router-outlet></router-outlet>
+    <nav>
+        <!--<a routerLink="/contactos">Lista de contactos</a> |
+        <a routerLink="/contacto-agregar">Añadir nuevo contacto</a>-->
+        <button mat-stroked-button color="primary" routerLink="/contactos">
+            <mat-icon>
+                list_alt
+            </mat-icon>
+            Lista de contactos
+        </button> |
+            <button mat-stroked-button color="primary" routerLink="/contacto-agregar">
+                <mat-icon>
+                    person_add
+                </mat-icon>
+                Añadir nuevo contacto
+            </button>
+    </nav>
+    <br>
+    <router-outlet></router-outlet>
+</body>

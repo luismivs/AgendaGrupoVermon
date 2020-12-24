@@ -1,42 +1,55 @@
+<body bgcolor="#F7F3E2">
+<br>
 <div *ngIf="contacto">
-    <h2>Detalles de {{contacto.nombre}}</h2>
-    <div><span>id: </span>{{contacto.id}}</div>
-    <div>
-        <label>nombre:
-        <input [(ngModel)]="contacto.nombre" placeholder="nombre"/>
-        </label>
-    </div>
-    <div>
-        <label>apellido1:
-        <input [(ngModel)]="contacto.apellido1" placeholder="apellido1"/>
-        </label>
-    </div>
-    <div>
-        <label>apellido2:
-        <input [(ngModel)]="contacto.apellido2" placeholder="apellido2"/>
-        </label>
-    </div>
-    <div>
-        <label>telefono:
-        <input [(ngModel)]="contacto.telefono" placeholder="telefono"/>
-        </label>
-    </div>
-    <div>
-        <label>direccion:
-        <input [(ngModel)]="contacto.direccion" placeholder="direccion"/>
-        </label>
-    </div>
-    <div>
-        <label>fecha de nacimiento:
-        <input [(ngModel)]="contacto.fecha_nacimiento" placeholder="fecha de nacimineto"/>
-        </label>
-    </div>
-    <div>
-        <label>tecnologias:
-        <input [(ngModel)]="contacto.tecnologias" placeholder="tecnologias"/>
-        </label>
-    </div>
+    <h2>Detalles de {{contacto.nombre}} {{contacto.apellido1}}</h2>
+    <mat-form-field class="example-full-width">
+        <mat-label>Id</mat-label>
+        <input matInput type="number" [(ngModel)]="contacto.id" required>
+      </mat-form-field>
+      <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Nombre:</mat-label>
+        <input matInput [(ngModel)]="contacto.nombre" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Primer apellido:</mat-label>
+        <input matInput [(ngModel)]="contacto.apellido1" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Segundo apellido:</mat-label>
+        <input matInput [(ngModel)]="contacto.apellido2" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Teléfono:</mat-label>
+        <input matInput maxlength="9" [(ngModel)]="contacto.telefono" required>
+        <mat-hint align="end">{{contacto.telefono?.length || 0}}/9</mat-hint>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Dirección:</mat-label>
+        <input matInput [(ngModel)]="contacto.direccion" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Fecha de nacimiento:</mat-label>
+        <input matInput type="date" [(ngModel)]="contacto.fecha_nacimiento" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Tecnologías:</mat-label>
+        <input matInput [(ngModel)]="contacto.tecnologias">
+    </mat-form-field>
+    <button mat-icon-button class="info" title="tecnologías información" (click)="tecInfo()">
+        <mat-icon>info</mat-icon>
+     </button>
+    <br>
 </div>
-
-<button (click)="goBack()">Volver</button>
-<button (click)="save()">Actualizar</button>
+<br>
+<div>
+    <button mat-raised-button color="primary" (click)="save()">Actualizar</button> |
+    <button mat-stroked-button (click)="goBack()">Volver</button> 
+</div>
+</body>

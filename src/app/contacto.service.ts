@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Contacto } from './contacto';
+import { Tecnologia } from './tecnologia';
 import { CONTACTOS } from './mock-contactos';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
+import  Swal  from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,15 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class ContactoService {
 
   private contactosUrl = 'http://localhost:3000/contactos';
+  private tecnologiaUrl = 'http://localhost:3000/tecnologias' ;
 
   constructor(private http: HttpClient) { }
+
+  getTecnologias(): Observable<Tecnologia[]> {
+    return this.http.get<Tecnologia[]>(this.tecnologiaUrl).pipe(
+      catchError(this.handleError<Tecnologia[]>('getTecnologia',[]))
+    );
+  }
 
   getContactos(): Observable<Contacto[]> {
     return this.http.get<Contacto[]>(this.contactosUrl).pipe(

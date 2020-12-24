@@ -1,20 +1,22 @@
-<br>
-<app-contacto-search></app-contacto-search>
-<br>
-<ul class="contactos">
-    <li *ngFor="let contacto of contactos">
-        <a routerLink="/contacto-detalle/{{contacto.id}}">
-            <span class="badge">{{contacto.id}}</span> {{contacto.nombre}} {{contacto.telefono}} {{contacto.tecnologias}}
+<body bgcolor="#F7F3E2">
+  <br>
+  <app-contacto-search></app-contacto-search>
+  <br>
+  <h1>Lista de contactos</h1>
+  <mat-divider></mat-divider>
+  <ul class="contactos">
+      <mat-list *ngFor="let contacto of contactos">
+          <a mat-list-item routerLink="/contacto-detalle/{{contacto.id}}">
+            Nombre: {{contacto.nombre}} {{contacto.apellido1}} | Tlf: {{contacto.telefono}} | Tecnologías: {{contacto.tecnologias}} |
           </a>        
-          <button class="delete" title="eliminar contacto" (click)="delete(contacto)">X</button>
-    </li>
+          <button mat-icon-button class="delete" title="eliminar contacto" (click)="delete(contacto)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <mat-divider></mat-divider>
+      </mat-list>
   </ul>
+</body>
 
-  <!--<app-contacto-detalle [contacto]="selectedContacto"></app-contacto-detalle>-->
 
-  <!--<h2>Mis contactos</h2>
-<ul class="contactos">
-    <li *ngFor="let contacto of contactos" (click)="onSelect(contacto)" [class.selected]="contacto === selectedContacto">
-      <span class="badge">{{contacto.id}}</span> {{contacto.nombre}} {{contacto.telefono}} {{contacto.tecnologias}}
-    </li>
-  </ul>-->
+
+  

@@ -11,18 +11,12 @@ import { ContactoService } from '../contacto.service';
 export class ContactosComponent implements OnInit {
  
   contactos: Contacto[];
-  //selectedContacto: Contacto;
 
   constructor(private contactoService: ContactoService) { }
 
   ngOnInit(): void {
     this.getContactos();
   }
-
-
-  //onSelect(contacto: Contacto): void {
-  //  this.selectedContacto = contacto;
-  //}
 
   getContactos(): void {
     this.contactoService.getContactos().subscribe(contactos => this.contactos = contactos);
